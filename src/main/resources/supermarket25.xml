@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<supermarket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:noNamespaceSchemaLocation="supermarket.xsd"
+             openTime="12:00:00" closingTime="12:30:00">
+    <products>
+        <product code="BRO001" description="Croissant" price="0.50"/>
+        <product code="BRO002" description="Kaiser broodje" price="0.35"/>
+        <product code="BRO003" description="Zaanse snijder heel" price="1.28"/>
+        <product code="ZUI001" description="Campina halfvolle melk 1L" price="0.76"/>
+        <product code="ZUI002" description="Campina magere yoghurt 1.5L" price="1.35"/>
+        <product code="ZUI003" description="Verse scharreleieren 4 stuks" price="1.26"/>
+        <product code="ZUI004" description="Old Amsterdam stuk 1Kg" price="8.26"/>
+        <product code="LEV001" description="Calve Pindakaas 650g" price="6.35"/>
+        <product code="LEV002" description="Bonne Maman aardbeienjam" price="3.65"/>
+        <product code="VLE001" description="Kip kilo knaller" price="4.85"/>
+        <product code="VLE002" description="Filetlapjes 700g" price="3.85"/>
+        <product code="VLE003" description="Eendeborst 500g" price="19.85"/>
+        <product code="GRO001" description="Paprika" price="0.75"/>
+        <product code="GRO002" description="Bloemkool" price="1.00"/>
+        <product code="GRO003" description="Aardappelen vastkokend 2.5Kg" price="2.09"/>
+        <product code="SNA001" description="Cashew noten 300g" price="3.85"/>
+        <product code="SNA002" description="Studentenhaver 300g" price="3.85"/>
+        <product code="DRA002" description="Hertog Jan 6-pack" price="4.85"/>
+        <product code="DRA003" description="Coca Cola Zero 1.5L" price="1.46"/>
+        <product code="DRA004" description="Multivruchtensap 2L" price="2.81"/>
+        <product code="SCH001" description="Robijn stralend wit" price="6.85"/>
+        <product code="SCH002" description="Robijn kleur en fijn" price="8.85"/>
+        <product code="VOE001" description="Douwe Egberts snelfilter 500g" price="4.25"/>
+        <product code="DIE001" description="Gourmet tonijn 100g" price="0.85"/>
+        <product code="DIE002" description="Purina kip adult 1.5Kg" price="13.25"/>
+    </products>
+</supermarket>

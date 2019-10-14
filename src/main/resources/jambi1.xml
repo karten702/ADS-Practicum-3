@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<supermarket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="supermarket.xsd" 
+	openTime="12:00:00" closingTime="12:05:00">
+  <products>
+    <product code="LEV001" description="Calve Pindakaas 650g" price="6.35"></product>
+    <product code="ZUI003" description="Verse scharreleieren 4 stuks" price="1.26"></product>
+    <product code="ZUI003" description="Vrije uitloopeieren 4 stuks" price="1.56"></product>
+    <product code="BRO001" description="Croissant" price="0.50"></product>
+    <product code="SCH001" description="Robijn stralend wit" price="6.85"></product>
+    <product code="VOE001" description="Douwe Egberts snelfilter 500g" price="4.25"></product>
+  </products>
+  <customers>
+    <customer queuedAt="12:03:44" zipCode="1015MF">
+      <purchase product="LEV001" amount="3"></purchase>
+      <purchase product="ZUI003" amount="5"></purchase>
+      <purchase product="VOE001" amount="2"></purchase>
+    </customer>
+  </customers>
+</supermarket>

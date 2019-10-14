@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="supermarket">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="products" minOccurs="0" maxOccurs="1"/>
+                <xs:element ref="customers" minOccurs="0" maxOccurs="1"/>
+            </xs:sequence>
+            <xs:attribute name="openTime" type="xs:time" use="required"/>
+            <xs:attribute name="closingTime" type="xs:time" use="required"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="products">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="product" type="ProductType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="ProductType">
+        <xs:attribute name="code" type="xs:NCName" use="required"/>
+        <xs:attribute name="description" type="xs:string" use="optional"/>
+        <xs:attribute name="price" type="xs:decimal" use="required"/>
+    </xs:complexType>
+    <xs:element name="customers">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="customer" type="CustomerType" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="CustomerType">
+        <xs:sequence>
+            <xs:element name="purchase" type="PurchaseType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="queuedAt" type="xs:time" use="required"/>
+        <xs:attribute name="zipCode" type="xs:string" use="optional"/>
+    </xs:complexType>
+    <xs:complexType name="PurchaseType">
+        <xs:attribute name="product" type="xs:NCName" use="required"/>
+        <xs:attribute name="amount" type="xs:positiveInteger" use="required"/>
+    </xs:complexType>
+</xs:schema>

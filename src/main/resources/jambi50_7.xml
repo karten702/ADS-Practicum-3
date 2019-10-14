@@ -1,0 +1,247 @@
+<?xml version="1.0" ?>
+<supermarket xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:noNamespaceSchemaLocation="supermarket.xsd" 
+	openTime="12:00:00" closingTime="12:30:00">
+  <products>
+    <product code="SCH002" description="Robijn kleur en fijn" price="8.85"></product>
+    <product code="DRA004" description="Multivruchtensap 2L" price="2.81"></product>
+    <product code="SCH001" description="Robijn stralend wit" price="6.85"></product>
+    <product code="VLE003" description="Eendeborst 500g" price="19.85"></product>
+    <product code="DRA003" description="Coca Cola Zero 1.5L" price="1.46"></product>
+    <product code="VLE002" description="Filetlapjes 700g" price="3.85"></product>
+    <product code="VLE001" description="Kip kilo knaller" price="4.85"></product>
+    <product code="BRO001" description="Croissant" price="0.50"></product>
+    <product code="BRO002" description="Kaiser broodje" price="0.35"></product>
+    <product code="BRO003" description="Zaanse snijder heel" price="1.28"></product>
+    <product code="ZUI001" description="Campina halfvolle melk 1L" price="0.76"></product>
+    <product code="SNA001" description="Cashew noten 300g" price="3.85"></product>
+    <product code="ZUI004" description="Old Amsterdam stuk 1Kg" price="8.26"></product>
+    <product code="ZUI003" description="Verse scharreleieren 4 stuks" price="1.26"></product>
+    <product code="ZUI002" description="Campina magere yoghurt 1.5L" price="1.35"></product>
+    <product code="SNA002" description="Studentenhaver 300g" price="3.85"></product>
+    <product code="LEV001" description="Calve Pindakaas 650g" price="6.35"></product>
+    <product code="LEV002" description="Bonne Maman aardbeienjam" price="3.65"></product>
+    <product code="DRA002" description="Hertog Jan 6-pack" price="4.85"></product>
+    <product code="DIE002" description="Purina kip adult 1.5Kg" price="13.25"></product>
+    <product code="GRO001" description="Paprika" price="0.75"></product>
+    <product code="GRO002" description="Bloemkool" price="1.00"></product>
+    <product code="GRO003" description="Aardappelen vastkokend 2.5Kg" price="2.09"></product>
+    <product code="VOE001" description="Douwe Egberts snelfilter 500g" price="4.25"></product>
+    <product code="DIE001" description="Gourmet tonijn 100g" price="0.85"></product>
+  </products>
+  <customers>
+    <customer queuedAt="12:13:34" zipCode="1013KN">
+      <purchase product="SNA001" amount="18"></purchase>
+      <purchase product="ZUI002" amount="3"></purchase>
+      <purchase product="DRA004" amount="1"></purchase>
+      <purchase product="VLE003" amount="4"></purchase>
+      <purchase product="DIE002" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:13:24" zipCode="1017OR">
+      <purchase product="SCH002" amount="4"></purchase>
+    </customer>
+    <customer queuedAt="12:02:11" zipCode="1016DG">
+      <purchase product="BRO002" amount="7"></purchase>
+    </customer>
+    <customer queuedAt="12:10:30" zipCode="1017OR">
+      <purchase product="ZUI001" amount="2"></purchase>
+      <purchase product="ZUI003" amount="2"></purchase>
+      <purchase product="VOE001" amount="4"></purchase>
+    </customer>
+    <customer queuedAt="12:01:58" zipCode="1016MJ">
+      <purchase product="SCH002" amount="1"></purchase>
+      <purchase product="VLE001" amount="4"></purchase>
+    </customer>
+    <customer queuedAt="12:18:04" zipCode="1015MP">
+      <purchase product="BRO002" amount="2"></purchase>
+      <purchase product="VLE003" amount="2"></purchase>
+      <purchase product="BRO003" amount="2"></purchase>
+      <purchase product="VLE001" amount="5"></purchase>
+      <purchase product="GRO002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:20:51" zipCode="1013AD">
+      <purchase product="VOE001" amount="6"></purchase>
+    </customer>
+    <customer queuedAt="12:15:56" zipCode="1013JG">
+      <purchase product="LEV001" amount="7"></purchase>
+      <purchase product="ZUI003" amount="4"></purchase>
+      <purchase product="SCH001" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:09:13" zipCode="1013AD">
+      <purchase product="VLE002" amount="4"></purchase>
+    </customer>
+    <customer queuedAt="12:04:39" zipCode="1015DM">
+      <purchase product="SCH002" amount="2"></purchase>
+      <purchase product="VLE002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:22:24" zipCode="1016EN">
+      <purchase product="VLE003" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:27:25" zipCode="1014CL">
+      <purchase product="LEV002" amount="1"></purchase>
+      <purchase product="DRA003" amount="11"></purchase>
+      <purchase product="VOE001" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:01:31" zipCode="1015DM">
+      <purchase product="SCH002" amount="2"></purchase>
+      <purchase product="VLE002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:19:55" zipCode="1013JG">
+      <purchase product="DRA002" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:19:35" zipCode="1013AD">
+      <purchase product="ZUI003" amount="13"></purchase>
+      <purchase product="ZUI002" amount="1"></purchase>
+      <purchase product="BRO002" amount="1"></purchase>
+      <purchase product="GRO003" amount="8"></purchase>
+    </customer>
+    <customer queuedAt="12:16:42" zipCode="1013BK">
+      <purchase product="ZUI002" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:25:56" zipCode="1017OR">
+      <purchase product="BRO002" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:11:26" zipCode="1015MP">
+      <purchase product="GRO001" amount="1"></purchase>
+      <purchase product="GRO002" amount="1"></purchase>
+      <purchase product="VOE001" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:00:41" zipCode="1016MJ">
+      <purchase product="ZUI001" amount="2"></purchase>
+      <purchase product="DRA004" amount="4"></purchase>
+    </customer>
+    <customer queuedAt="12:16:10" zipCode="1016EN">
+      <purchase product="BRO001" amount="1"></purchase>
+      <purchase product="GRO001" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:00:24" zipCode="1013JG">
+      <purchase product="SNA001" amount="1"></purchase>
+      <purchase product="SCH002" amount="9"></purchase>
+      <purchase product="GRO001" amount="4"></purchase>
+      <purchase product="GRO002" amount="14"></purchase>
+    </customer>
+    <customer queuedAt="12:13:56" zipCode="1014CL">
+      <purchase product="ZUI002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:12:42" zipCode="1013KN">
+      <purchase product="DIE002" amount="11"></purchase>
+      <purchase product="VLE001" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:26:03" zipCode="1017OR">
+      <purchase product="BRO001" amount="7"></purchase>
+      <purchase product="DIE002" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:17:09" zipCode="1016MJ">
+      <purchase product="DRA002" amount="1"></purchase>
+      <purchase product="SNA002" amount="2"></purchase>
+      <purchase product="DIE001" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:08:54" zipCode="1016DG">
+      <purchase product="SNA002" amount="2"></purchase>
+      <purchase product="GRO001" amount="6"></purchase>
+      <purchase product="GRO003" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:09:53" zipCode="1016DG">
+      <purchase product="SNA001" amount="4"></purchase>
+      <purchase product="GRO002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:00:02" zipCode="1015LI">
+      <purchase product="DIE001" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:24:09" zipCode="1014LO">
+      <purchase product="ZUI004" amount="2"></purchase>
+      <purchase product="VOE001" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:07:10" zipCode="1014CL">
+      <purchase product="ZUI001" amount="2"></purchase>
+      <purchase product="BRO001" amount="3"></purchase>
+      <purchase product="VLE002" amount="1"></purchase>
+      <purchase product="GRO002" amount="6"></purchase>
+    </customer>
+    <customer queuedAt="12:14:02" zipCode="1016EN">
+      <purchase product="ZUI004" amount="7"></purchase>
+      <purchase product="SNA002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:01:49" zipCode="1015CF">
+      <purchase product="SCH002" amount="3"></purchase>
+      <purchase product="DRA003" amount="1"></purchase>
+      <purchase product="VOE001" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:10:48" zipCode="1015CF">
+      <purchase product="BRO001" amount="14"></purchase>
+      <purchase product="DRA003" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:08:31" zipCode="1014CL">
+      <purchase product="VLE003" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:17:22" zipCode="1015LI">
+      <purchase product="ZUI004" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:06:50" zipCode="1015DM">
+      <purchase product="SCH002" amount="2"></purchase>
+      <purchase product="SCH001" amount="7"></purchase>
+    </customer>
+    <customer queuedAt="12:13:27" zipCode="1015CF">
+      <purchase product="GRO001" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:04:02" zipCode="1017FO">
+      <purchase product="LEV001" amount="1"></purchase>
+      <purchase product="BRO001" amount="1"></purchase>
+      <purchase product="VLE001" amount="5"></purchase>
+      <purchase product="GRO002" amount="2"></purchase>
+      <purchase product="VOE001" amount="3"></purchase>
+    </customer>
+    <customer queuedAt="12:24:07" zipCode="1015DM">
+      <purchase product="ZUI003" amount="3"></purchase>
+      <purchase product="DIE001" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:02:57" zipCode="1016NQ">
+      <purchase product="ZUI002" amount="1"></purchase>
+      <purchase product="DIE001" amount="4"></purchase>
+    </customer>
+    <customer queuedAt="12:19:20" zipCode="1015DM">
+      <purchase product="ZUI001" amount="1"></purchase>
+      <purchase product="ZUI002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:04:05" zipCode="1015DM">
+      <purchase product="DRA003" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:00:55" zipCode="1015CF">
+      <purchase product="LEV001" amount="2"></purchase>
+      <purchase product="VLE003" amount="1"></purchase>
+      <purchase product="DIE001" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:22:20" zipCode="1014BE">
+      <purchase product="ZUI003" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:03:23" zipCode="1013BK">
+      <purchase product="ZUI003" amount="2"></purchase>
+      <purchase product="BRO001" amount="2"></purchase>
+      <purchase product="DRA003" amount="7"></purchase>
+      <purchase product="BRO003" amount="6"></purchase>
+      <purchase product="GRO002" amount="1"></purchase>
+    </customer>
+    <customer queuedAt="12:28:00" zipCode="1014BE">
+      <purchase product="BRO001" amount="2"></purchase>
+      <purchase product="VLE001" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:20:28" zipCode="1014BE">
+      <purchase product="ZUI002" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:17:42" zipCode="1014BE">
+      <purchase product="ZUI001" amount="2"></purchase>
+      <purchase product="BRO001" amount="1"></purchase>
+      <purchase product="DIE002" amount="2"></purchase>
+    </customer>
+    <customer queuedAt="12:16:44" zipCode="1017NK">
+      <purchase product="LEV002" amount="3"></purchase>
+      <purchase product="ZUI004" amount="1"></purchase>
+      <purchase product="VLE003" amount="6"></purchase>
+    </customer>
+    <customer queuedAt="12:23:58" zipCode="1016EN">
+      <purchase product="ZUI002" amount="10"></purchase>
+      <purchase product="DRA003" amount="1"></purchase>
+      <purchase product="VOE001" amount="5"></purchase>
+    </customer>
+  </customers>
+</supermarket>
