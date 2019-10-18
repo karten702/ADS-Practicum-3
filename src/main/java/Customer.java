@@ -1,9 +1,8 @@
 /**
- * Supermarket Customer check-out and Cashiers.Cashier simulation
+ * Supermarket Customer check-out and Cashier simulation
  * @author  hbo-ict@hva.nl
  */
 
-import Cashiers.Cashier;
 import utils.XMLParser;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;

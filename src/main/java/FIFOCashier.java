@@ -1,10 +1,9 @@
-package Cashiers;
-
 import java.time.LocalTime;
 
-public class PriorityCashier extends Cashier {
+public class FIFOCashier extends Cashier {
 
-    protected PriorityCashier(String name) {
+
+    protected FIFOCashier(String name) {
         super(name);
     }
 
