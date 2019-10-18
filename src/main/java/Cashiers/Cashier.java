@@ -1,5 +1,5 @@
-/**
- * Supermarket Customer check-out and Cashier simulation
+package Cashiers; /**
+ * Supermarket Customer check-out and Cashiers.Cashier simulation
  * @author  hbo-ict@hva.nl
  */
 

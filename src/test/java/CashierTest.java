@@ -1,3 +1,4 @@
+import Cashiers.Cashier;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
@@ -111,11 +112,11 @@ class CashierTest {
 
     @Test
     void t051_fifoCashierConcreteClassHasBeenDefined() {
-        assertTrue(this.fifoCashier instanceof Cashier, "FIFOCashier is not a Cashier");
+        assertTrue(this.fifoCashier instanceof Cashier, "FIFOCashier is not a Cashiers.Cashier");
     }
 
     @Test
     void t101_priorityCashierConcreteClassHasBeenDefined() {
-        assertTrue(this.priorityCashier instanceof Cashier, "PriotityCashier is not a Cashier");
+        assertTrue(this.priorityCashier instanceof Cashier, "PriotityCashier is not a Cashiers.Cashier");
     }
 }
