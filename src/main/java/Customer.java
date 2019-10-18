@@ -41,7 +41,7 @@ public class Customer {
         double totalBill = 0.0;
 
         for(Purchase p : items){
-            totalBill += p.getProduct().getPrice();
+            totalBill += (p.getAmount() * p.getProduct().getPrice());
         }
 
         return totalBill;
