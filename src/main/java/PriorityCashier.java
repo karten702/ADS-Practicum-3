@@ -2,8 +2,11 @@ import java.time.LocalTime;
 
 public class PriorityCashier extends Cashier {
 
-    protected PriorityCashier(String name) {
+    int maxNumPriorityItems;
+
+    public PriorityCashier(String name, int maxNumPriorityItems) {
         super(name);
+        this.maxNumPriorityItems = maxNumPriorityItems;
     }
 
     @Override
