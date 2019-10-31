@@ -5,11 +5,21 @@ public class FIFOCashier extends Cashier {
 
     protected int checkoutTimePerCustomer = 20;
     protected int checkoutTimePerItem = 2;
-    private Customer servicingCustomer;
+    protected int timeServicingCustomer = 0;
+    protected Customer servicingCustomer;
 
     public FIFOCashier(String name) {
         super(name);
         waitingQueue = new LinkedList<>();
+    }
+
+    @Override
+    public void reStart(LocalTime currentTime) {
+        this.waitingQueue.clear();
+        this.currentTime = currentTime;
+        this.totalIdleTime = 0;
+        this.maxQueueLength = 0;
+        this.timeServicingCustomer = 0;
     }
 
     /**
@@ -41,12 +51,12 @@ public class FIFOCashier extends Cashier {
         int totalWaitTime = 0;
 
         if (servicingCustomer != null){
-            totalWaitTime += expectedCheckOutTime(servicingCustomer.getNumberOfItems()) - servicingCustomer.getActualCheckOutTime();
+            totalWaitTime += expectedCheckOutTime(servicingCustomer.getNumberOfItems()) - timeServicingCustomer;
         }
 
         for(Customer waitingCustomer : waitingQueue){
             if (!waitingCustomer.equals(customer))
-                totalWaitTime += expectedCheckOutTime(waitingCustomer.getNumberOfItems()) - waitingCustomer.getActualCheckOutTime();
+                totalWaitTime += expectedCheckOutTime(waitingCustomer.getNumberOfItems());
             else
                 break;
         }
@@ -81,12 +91,13 @@ public class FIFOCashier extends Cashier {
                 servicingCustomer.setActualWaitingTime(servicingCustomer.getQueuedAt().compareTo(currentTime));
             }
 
-            if (servicingCustomer.getActualCheckOutTime() < expectedCheckOutTime(servicingCustomer.getNumberOfItems())) {
-                servicingCustomer.setActualCheckOutTime(servicingCustomer.getActualCheckOutTime()+1);
+            if (timeServicingCustomer < expectedCheckOutTime(servicingCustomer.getNumberOfItems())) {
+                timeServicingCustomer++; //servicingCustomer.setActualCheckOutTime(servicingCustomer.getActualCheckOutTime()+1);
                 this.setCurrentTime(currentTime.plusSeconds(1));
             }
             else {
-                servicingCustomer.setActualCheckOutTime(servicingCustomer.getActualCheckOutTime()+1);
+                servicingCustomer.setActualCheckOutTime(timeServicingCustomer);
+                timeServicingCustomer = 0;
                 servicingCustomer = null;
                 maxQueueLength--;
                 this.setCurrentTime(currentTime.plusSeconds(1));
