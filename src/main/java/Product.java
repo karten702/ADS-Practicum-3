@@ -10,7 +10,7 @@ import java.util.Collection;
 import java.util.Locale;
 import java.util.Set;
 
-public class Product {
+public class Product implements Comparable<Product> {
     private String code;            // a unique product code; identical codes designate identical products
     private String description;     // the product description, useful for reporting
     private double price;           // the product's price
@@ -91,5 +91,26 @@ public class Product {
         xmlWriter.writeAttribute("description", this.description);
         xmlWriter.writeAttribute("price", String.format(Locale.US, "%.2f", this.price));
         xmlWriter.writeEndElement();
+    }
+
+    @Override
+    public int compareTo(Product o) {
+        return code.compareTo(o.code);
+    }
+
+    @Override
+    public boolean equals(Object o){
+        if (this == o)
+            return true;
+        if (o == null || getClass() != o.getClass())
+            return false;
+
+        Product prod = (Product) o;
+        return this.code.equals(prod.code);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.code.hashCode();
     }
 }
