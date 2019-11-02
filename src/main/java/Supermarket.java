@@ -23,13 +23,16 @@ public class Supermarket {
         this.setOpenTime(openTime);
         this.setClosingTime(closingTime);
         this.cashiers = new ArrayList<>();
-        // TODO create empty data structures for products and customers
+        this.customers = new ArrayList<>();
+        this.products = new HashSet<>();
     }
 
     public int getTotalNumberOfItems() {
         int totalItems = 0;
 
-        // TODO: calculate the total number of shopped items
+        for(Customer c : customers){
+            totalItems += c.getNumberOfItems();
+        }
 
         return totalItems;
     }
@@ -54,8 +57,9 @@ public class Supermarket {
         Map<String, Product> populars = this.mostBoughtProductByZipCode();
 
         double totalRevenue = 0.0;
-        // TODO: display the calculated revenues and most bought products.
-        // TODO: calculate the total revenue.
+        for (Map.Entry<String, Product> entry : populars.entrySet()){
+            System.out.println(entry.getKey() + ": " + revenues.getOrDefault(entry.getKey(), 0.0) + "(" + entry.getValue().getDescription() + ")");
+        }
 
         System.out.printf("\nTotal Revenue=%.2f\n", totalRevenue);
     }
@@ -87,10 +91,15 @@ public class Supermarket {
      * @return
      */
     public Map<String, Double> revenueByZipCode() {
-        Map<String, Double> revenues = null;
+        Map<String, Double> revenues = new HashMap<>();
 
-        // TODO create an appropriate data structure for the revenues
-        //  and calculate its contents
+        for (Customer c : customers){
+            if (revenues.containsKey(c.getZipCode())){
+                revenues.put(c.getZipCode(), revenues.get(c.getZipCode()) + c.calculateTotalBill());
+            }
+            else
+                revenues.put(c.getZipCode(), c.calculateTotalBill());
+        }
 
         return revenues;
     }
@@ -102,10 +111,41 @@ public class Supermarket {
      * @return
      */
     public Map<String, Product> mostBoughtProductByZipCode() {
-        Map<String, Product> mostBought = null;
+        Map<String, Product> mostBought = new HashMap<>();
 
-        // TODO create an appropriate data structure for the mostBought
-        //  and calculate its contents
+        Map<String, Map<Product, Integer>> salesPerZip = new HashMap<>();
+        for (Customer customer : customers){
+            if (!salesPerZip.containsKey(customer.getZipCode())){
+                Map<Product, Integer> zipPurchases = new HashMap<>();
+                salesPerZip.put(customer.getZipCode(), zipPurchases);
+            }
+            Map<Product, Integer> localPurchases = salesPerZip.get(customer.getZipCode());
+
+            for (Purchase purchase : customer.getItems()){
+                if (localPurchases.containsKey(purchase.getProduct())){
+                    localPurchases.put(purchase.getProduct(), localPurchases.get(purchase.getProduct()) + purchase.getAmount());
+                }
+                else {
+                    localPurchases.put(purchase.getProduct(), purchase.getAmount());
+                }
+            }
+            salesPerZip.put(customer.getZipCode(), localPurchases);
+        }
+
+        List<String> codes = new ArrayList<>(salesPerZip.keySet());
+        for (String zip : codes){
+            Product mostBoughtProduct = null;
+            Integer number = 0;
+            List<Product> prods = new ArrayList<>(salesPerZip.get(zip).keySet());
+            for (Product p : prods){
+                Integer amount = salesPerZip.get(zip).get(p);
+                if (amount > number){
+                    number = amount;
+                    mostBoughtProduct = p;
+                }
+            }
+            mostBought.put(zip, mostBoughtProduct);
+        }
 
         return mostBought;
     }
