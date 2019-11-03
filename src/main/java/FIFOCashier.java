@@ -1,4 +1,5 @@
 import java.time.LocalTime;
+import java.time.temporal.ChronoUnit;
 import java.util.LinkedList;
 
 public class FIFOCashier extends Cashier {
@@ -100,7 +101,7 @@ public class FIFOCashier extends Cashier {
             }
             if (servicingCustomer == null) {
                 servicingCustomer = waitingQueue.poll();
-                servicingCustomer.setActualWaitingTime(currentTime.compareTo(servicingCustomer.getQueuedAt()));
+                servicingCustomer.setActualWaitingTime((int) ChronoUnit.SECONDS.between(servicingCustomer.getQueuedAt(), currentTime));
             }
 
             if (timeServicingCustomer < expectedCheckOutTime(servicingCustomer.getNumberOfItems())) {
