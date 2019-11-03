@@ -161,16 +161,11 @@ public class Supermarket {
 		}
 
 		for (String zip : salesPerZip.keySet()) {
-			Product mostBoughtProduct = null;
-			Integer number = 0;
-			List<Product> prods = new ArrayList<>(salesPerZip.get(zip).keySet());
-			for (Product p : prods) {
-				Integer amount = salesPerZip.get(zip).get(p);
-				if (amount > number) {
-					number = amount;
-					mostBoughtProduct = p;
-				}
-			}
+			Product mostBoughtProduct = salesPerZip
+                .get(zip).entrySet().stream()
+                .max(Comparator.comparingInt(Map.Entry::getValue))
+                .map(Map.Entry::getKey)
+                .orElse(null);
 			mostBought.put(zip, mostBoughtProduct);
 		}
 
