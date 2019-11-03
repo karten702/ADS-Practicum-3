@@ -91,7 +91,7 @@ public class Supermarket {
      * @return
      */
     public Map<String, Double> revenueByZipCode() {
-        Map<String, Double> revenues = new HashMap<>();
+        Map<String, Double> revenues = new TreeMap<>();
 
         for (Customer c : customers){
             if (revenues.containsKey(c.getZipCode())){
@@ -111,7 +111,7 @@ public class Supermarket {
      * @return
      */
     public Map<String, Product> mostBoughtProductByZipCode() {
-        Map<String, Product> mostBought = new HashMap<>();
+        Map<String, Product> mostBought = new TreeMap<>();
 
         Map<String, Map<Product, Integer>> salesPerZip = new HashMap<>();
         for (Customer customer : customers){
@@ -154,10 +154,9 @@ public class Supermarket {
      * simulate the cashiers while handling all customers that enter their queues
      */
     public void simulateCashiers() {
-        Queue<Customer> shoppingQueue = null;
+        Queue<Customer> shoppingQueue = new PriorityQueue<>(Comparator.comparing(Customer::getQueuedAt));
 
-        // TODO: create an appropriate data structure for the shoppingQueue
-        //  and add all customers in the supermarket
+        shoppingQueue.addAll(customers);
 
         // all cashiers restart at open time
         for (Cashier c : this.cashiers) {
@@ -167,8 +166,7 @@ public class Supermarket {
         // poll the customers from the queue one by one
         // and redirect them to the cashier of their choice
 
-        // TODO: get the first customer from the shoppingQueue;
-        Customer nextCustomer = null;
+        Customer nextCustomer = shoppingQueue.poll();
 
         while (nextCustomer != null) {
 
@@ -181,7 +179,7 @@ public class Supermarket {
             // redirect the customer to the selected cashier
             selectedCashier.add(nextCustomer);
 
-            // TODO: next customer is arriving, get the next customer from the shoppingQueue
+            nextCustomer = shoppingQueue.poll();
         }
 
         // all customers have been handled;

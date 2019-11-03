@@ -22,6 +22,17 @@ public class FIFOCashier extends Cashier {
         this.timeServicingCustomer = 0;
     }
 
+    @Override
+    public void add(Customer customer) {
+        if (customer.getNumberOfItems() > 0) {
+            this.waitingQueue.add(customer);
+            int currentQueueLength = this.waitingQueue.size() + (servicingCustomer == null ? 0 : 1);
+            if (currentQueueLength > maxQueueLength) {
+                maxQueueLength = currentQueueLength;
+            }
+        }
+    }
+
     /**
      * calculate the expected nett checkout time of a customer with a given number of items
      * this may be different for different types of Cashiers
@@ -99,8 +110,8 @@ public class FIFOCashier extends Cashier {
                 servicingCustomer.setActualCheckOutTime(timeServicingCustomer);
                 timeServicingCustomer = 0;
                 servicingCustomer = null;
-                maxQueueLength--;
-                this.setCurrentTime(currentTime.plusSeconds(1));
+//                maxQueueLength--;
+//                this.setCurrentTime(currentTime.plusSeconds(1));
             }
         }
     }

@@ -113,4 +113,9 @@ public class Product implements Comparable<Product> {
     public int hashCode() {
         return this.code.hashCode();
     }
+
+	@Override
+	public String toString() {
+		return getDescription();
+	}
 }

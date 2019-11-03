@@ -69,7 +69,7 @@ public abstract class Cashier {
      * @param customer
      */
     public void add(Customer customer) {
-        // TODO add the customer to the queue of the cashier (if check-out is required)
+        System.out.printf("Customer %s - %d%n", customer.getZipCode(), customer.getNumberOfItems());
         if (customer.getNumberOfItems() > 0){
             waitingQueue.add(customer);
             maxQueueLength++;
