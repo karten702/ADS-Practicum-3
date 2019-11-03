@@ -8,6 +8,8 @@ import utils.XMLWriter;
 import javax.xml.stream.XMLStreamConstants;
 import java.time.LocalTime;
 import java.util.*;
+import java.util.function.IntFunction;
+import java.util.function.IntSupplier;
 
 public class Supermarket {
     public String name;                 // name of the case for reporting purposes
@@ -57,8 +59,13 @@ public class Supermarket {
         Map<String, Product> populars = this.mostBoughtProductByZipCode();
 
         double totalRevenue = 0.0;
-        for (Map.Entry<String, Product> entry : populars.entrySet()){
-            System.out.println(entry.getKey() + ": " + revenues.getOrDefault(entry.getKey(), 0.0) + "(" + entry.getValue().getDescription() + ")");
+        for (Map.Entry<String, Product> entry : populars.entrySet()) {
+            System.out.printf(
+                "%s: %2.2f %s%n",
+                entry.getKey(),
+                revenues.getOrDefault(entry.getKey(), 0.0),
+                entry.getValue() == null ? "" : "(" + entry.getValue().getDescription() + ")"
+            );
         }
 
         System.out.printf("\nTotal Revenue=%.2f\n", totalRevenue);
@@ -69,21 +76,35 @@ public class Supermarket {
      */
     public void printSimulationResults() {
 
-        System.out.printf("\nSimulation scenario results:\n");
-        System.out.printf("Cashiers:     n-customers:  avg-wait-time: max-wait-time: max-queue-length: avg-check-out-time: idle-time:\n");
-        // TODO: report simulation results per cashier:
-        //  a) number of customers
-        //  b) average waiting time per customer
-        //  c) maximum waiting time by any customer at the given cashier
-        //  d) maximum queue length of waiting customers including the customer being served
-        //  e) average check-out time of customers at the given cashier
-        //  f) total idle time of the cashier
-        //     (a self-service area is idle already if at least one terminal is idle)
+        System.out.println("\nSimulation scenario results:");
+        System.out.println("Cashiers:\tn-customers:\tavg-wait-time:\tmax-wait-time:\tmax-queue-length:\tavg-check-out-time:\tidle-time:");
 
+		for (Cashier cashier : cashiers) {
+			Customer[] cashiersCustomers = this.customers.stream().filter(c -> c.getCheckOutCashier() == cashier).toArray(Customer[]::new);
+            System.out.printf(
+                "\t%s\t\t%4d\t\t\t%3.2f\t\t\t%4d\t\t\t%4d\t\t\t\t%3.2f\t\t\t\t%4d",
+                cashier.getName(),
+                cashiersCustomers.length,
+                Arrays.stream(cashiersCustomers).mapToInt(Customer::getActualWaitingTime).sum() / (double) cashiersCustomers.length,
+                Arrays.stream(cashiersCustomers).mapToInt(Customer::getActualWaitingTime).max().orElse(0),
+                cashier.getMaxQueueLength(),
+                Arrays.stream(cashiersCustomers).mapToInt(Customer::getActualCheckOutTime).sum() / (double) cashiersCustomers.length,
+                cashier.getTotalIdleTime()
+            );
+			System.out.println();
+		}
 
-        // TODO: report the same overall simulation results across all cashiers
-        //  as customer weighted averages or sums of totals.
-
+        System.out.printf(
+            "\t%s\t\t%4d\t\t\t%3.2f\t\t\t%4d\t\t\t%4d\t\t\t\t%3.2f\t\t\t\t%4d",
+            "overall",
+            customers.size(),
+            this.customers.stream().mapToInt(Customer::getActualWaitingTime).sum() / (double) this.customers.size(),
+            this.customers.stream().mapToInt(Customer::getActualWaitingTime).max().orElse(0),
+            this.cashiers.stream().mapToInt(Cashier::getMaxQueueLength).max().orElse(0),
+            this.customers.stream().mapToInt(Customer::getActualCheckOutTime).sum() / (double) this.customers.size(),
+            this.cashiers.stream().mapToInt(Cashier::getTotalIdleTime).sum()
+        );
+        System.out.println();
     }
 
     /**

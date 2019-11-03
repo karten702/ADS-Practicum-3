@@ -9,10 +9,8 @@ public class SupermarketSmall {
 
         // configure the cashiers for a test scenario
         supermarket.getCashiers().clear();
-        // TODO Add 2 FIFO cashiers
-        //  (uncomment these lines once the FIFOCashier class has been implemented)
-        //supermarket.getCashiers().add(new FIFOCashier("FIFO-1"));
-        //supermarket.getCashiers().add(new FIFOCashier("FIFO-2"));
+        supermarket.getCashiers().add(new FIFOCashier("FIFO-1"));
+        supermarket.getCashiers().add(new FIFOCashier("FIFO-2"));
 
         // simulate the configuration and print the result
         supermarket.simulateCashiers();

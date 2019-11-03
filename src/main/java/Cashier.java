@@ -69,10 +69,8 @@ public abstract class Cashier {
      * @param customer
      */
     public void add(Customer customer) {
-        System.out.printf("Customer %s - %d%n", customer.getZipCode(), customer.getNumberOfItems());
         if (customer.getNumberOfItems() > 0){
             waitingQueue.add(customer);
-            maxQueueLength++;
         }
     }
 
