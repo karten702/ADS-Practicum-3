@@ -60,10 +60,12 @@ public class Supermarket {
 
         double totalRevenue = 0.0;
         for (Map.Entry<String, Product> entry : populars.entrySet()) {
+            double revenue = revenues.getOrDefault(entry.getKey(), 0.0);
+            totalRevenue += revenue;
             System.out.printf(
                 "%s: %2.2f %s%n",
                 entry.getKey(),
-                revenues.getOrDefault(entry.getKey(), 0.0),
+                revenue,
                 entry.getValue() == null ? "" : "(" + entry.getValue().getDescription() + ")"
             );
         }
