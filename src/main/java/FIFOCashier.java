@@ -26,6 +26,7 @@ public class FIFOCashier extends Cashier {
     public void add(Customer customer) {
         if (customer.getNumberOfItems() > 0) {
             this.waitingQueue.add(customer);
+            customer.setCheckOutCashier(this);
             int currentQueueLength = this.waitingQueue.size() + (servicingCustomer == null ? 0 : 1);
             if (currentQueueLength > maxQueueLength) {
                 maxQueueLength = currentQueueLength;
