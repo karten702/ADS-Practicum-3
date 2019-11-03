@@ -69,8 +69,10 @@ public class Customer {
                 if (passthroughTime == 0)
                     passthroughTime = waitTime;
 
-                if (passthroughTime >= waitTime)
+                if (passthroughTime >= waitTime) {
                     selectedCashier = c;
+                    passthroughTime = waitTime;
+                }
             }
         }
         return selectedCashier;
