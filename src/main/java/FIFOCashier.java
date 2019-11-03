@@ -99,7 +99,7 @@ public class FIFOCashier extends Cashier {
             }
             if (servicingCustomer == null) {
                 servicingCustomer = waitingQueue.poll();
-                servicingCustomer.setActualWaitingTime(servicingCustomer.getQueuedAt().compareTo(currentTime));
+                servicingCustomer.setActualWaitingTime(currentTime.compareTo(servicingCustomer.getQueuedAt()));
             }
 
             if (timeServicingCustomer < expectedCheckOutTime(servicingCustomer.getNumberOfItems())) {
